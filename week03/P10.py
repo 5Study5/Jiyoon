@@ -12,4 +12,3 @@ def solution(number):
                     continue
     
     return answer
-
