@@ -1,7 +1,7 @@
 def solution(answers):
     answer = []
     
-    n_1, n_2, n_3 = 0   # 각 각 맞춘 문제 수
+    n_1, n_2, n_3 = 0, 0, 0   # 각 각 맞춘 문제 수
     arr_2 = [2,1,2,3,2,4,2,5]
     arr_3 = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5]
     
@@ -30,5 +30,3 @@ def solution(answers):
             answer.append(i+1)
     
     return answer
-
-solution([1,2,3,4,5])
