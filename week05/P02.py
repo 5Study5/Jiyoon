@@ -1,18 +1,27 @@
-from collections import Counter
+def solution(people, limit):
+    people.sort()
 
-def solution(k, tangerine):
+    left = 0
+    right = len(people) - 1
+
     answer = 0
-    
-    # collections.Counter(arr)를 사용하면 각 원소의 개수를 딕셔너리로 반환
-    count = Counter(tangerine)
-    
-    # 빈도수가 높은 순서대로 상위 n개의 원소를 (원소, 개수) 형태의 튜플 리스트로 반환
-    # 숫자를 넣지 않으면 전체 원소 정렬하여 반환
-    for size, num in count.most_common():
-        k -= num
+
+    while left <= right:
+
+        # 한 명만 남은 경우
+        if left == right:
+            answer += 1
+            break
+
+        # 가장 가벼운 사람 + 가장 무거운 사람이 같이 탈 수 있으면
+        if people[left] + people[right] <= limit:
+            left += 1
+            right -= 1
+
+        # 같이 못 타면 가장 무거운 사람 혼자 탐
+        else:
+            right -= 1
+
         answer += 1
 
-        if k <= 0:
-            break
-    
     return answer
